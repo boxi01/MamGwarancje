@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "457193538800",
+    "firebase_url": "https://gwarancja-66eff.firebaseio.com",
+    "project_id": "gwarancja-66eff",
+    "storage_bucket": "gwarancja-66eff.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:457193538800:android:54f20e3767078e2709ae35",
+        "android_client_info": {
+          "package_name": "com.example.gwarancja"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "457193538800-eq9pedg5oeaa1o9ofo2t62g75m20ccvj.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.gwarancja",
+            "certificate_hash": "eab83e05e89d8247a9a24bdb45c6e7cadfeb30ab"
+          }
+        },
+        {
+          "client_id": "457193538800-tk6gqdqe8ptqqqf7sm4a6e4hc07an1j0.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAvRk3slHVB6WlclaSOHsWroBjpEClCiZc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "457193538800-tk6gqdqe8ptqqqf7sm4a6e4hc07an1j0.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

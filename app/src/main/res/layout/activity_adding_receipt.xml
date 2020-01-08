@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/viewTextName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:layout_below="@+id/button_take_photo"
+        android:text="Nazwa produktu:"/>
+
+    <EditText
+        android:id="@+id/editTextName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:layout_below="@+id/viewTextName"
+        android:inputType="textPersonName"
+        android:text=" "/>
+
+
+    <Button
+        android:id="@+id/button_take_photo"
+        android:layout_width="300dp"
+        android:layout_height="60dp"
+        android:layout_below="@+id/imageReceipt"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="40dp"
+        android:background="@drawable/button"
+        android:textColor="#ffffff"
+        android:text="ZRÓB ZDJĘCIE" />
+
+    <ImageView
+        android:id="@+id/imageReceipt"
+        android:layout_width="match_parent"
+        android:layout_height="174dp"
+        android:layout_marginTop="40dp"
+        android:layout_centerHorizontal="true"
+        app:srcCompat="@drawable/dodawanie" />
+
+    <TextView
+        android:id="@+id/viewTextGuarantee"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:paddingRight="10dp"
+        android:layout_toRightOf="@+id/textViewDate"
+        android:layout_below="@+id/editTextName"
+        android:text="Gwarancja (lata):"/>
+
+
+    <EditText
+        android:id="@+id/editTextYears"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/viewTextGuarantee"
+        android:ems="10"
+        android:paddingRight="10dp"
+        android:layout_toRightOf="@+id/textViewDate"
+        android:inputType="number"
+        android:text=""/>
+
+    <TextView
+        android:id="@+id/viewTextDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:layout_below="@+id/editTextName"
+        android:text="Data zakupu:"/>
+
+    <TextView
+        android:id="@+id/textViewDate"
+        android:layout_width="207dp"
+        android:layout_height="41dp"
+        android:layout_below="@+id/viewTextDate"
+        android:layout_marginTop="10dp"
+        android:text=""
+        android:textColor="@android:color/black"
+        android:textSize="18sp" />
+
+
+</RelativeLayout>
