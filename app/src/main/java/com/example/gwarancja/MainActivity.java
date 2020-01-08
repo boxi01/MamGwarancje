@@ -1,10 +1,13 @@
 package com.example.gwarancja;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import com.firebase.ui.firestore.FirestoreRecyclerOptions;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import android.view.View;
+
+import androidx.appcompat.app.AlertDialog;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
@@ -64,8 +67,7 @@ public class MainActivity extends AppCompatActivity {
                 Receipt receipt = documentSnapshot.toObject(Receipt.class);
                 String id = documentSnapshot.getId();
                 String path = documentSnapshot.getReference().getPath();
-                Toast.makeText(MainActivity.this,
-                        "Position: " + position + " ID: " + id, Toast.LENGTH_SHORT).show();
+
                 Intent appInfo = new Intent(getApplicationContext(), ReceiptDetails.class);
                 appInfo.putExtra(ReceiptDetails.EXTRA_PRODUCT, receipt.getProduct());
                 appInfo.putExtra(ReceiptDetails.EXTRA_DATE, receipt.getDate());
@@ -92,7 +94,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void setUpRecyclerView() {
-        Query query = receiptsRef.orderBy("years", Query.Direction.DESCENDING);
+        Query query = receiptsRef.orderBy("endDate", Query.Direction.DESCENDING);
 
         FirestoreRecyclerOptions<Receipt> options = new FirestoreRecyclerOptions.Builder<Receipt>()
                 .setQuery(query, Receipt.class)
@@ -102,7 +104,11 @@ public class MainActivity extends AppCompatActivity {
 
         RecyclerView recyclerView = findViewById(R.id.recyclerView);
         recyclerView.setHasFixedSize(true);
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
+        linearLayoutManager.setReverseLayout(true);
+        linearLayoutManager.setStackFromEnd(true);
+        recyclerView.setLayoutManager(linearLayoutManager);
+        //recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setAdapter(adapter);
 
         new ItemTouchHelper(new ItemTouchHelper.SimpleCallback(0,
@@ -113,9 +119,23 @@ public class MainActivity extends AppCompatActivity {
             }
 
             @Override
-            public void onSwiped(RecyclerView.ViewHolder viewHolder, int direction) {
-                adapter.deleteItem(viewHolder.getAdapterPosition());
-            }
+            public void onSwiped(final RecyclerView.ViewHolder viewHolder, int direction) {
+                new AlertDialog.Builder(viewHolder.itemView.getContext())
+                        .setMessage("Czy na pewno chcesz usunąć gwarancję?")
+                        .setPositiveButton("TAK", new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int id) {
+                                // Get the position of the item to be deleted
+                                adapter.deleteItem(viewHolder.getAdapterPosition());
+                                // Then you can remove this item from the adapter
+                            }
+
+            }).setNegativeButton("NIE", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        // User cancelled the dialog,
+                        // so we will refresh the adapter to prevent hiding the item from UI
+                        adapter.notifyItemChanged(viewHolder.getAdapterPosition());
+                    }
+                }).create().show();}
         }).attachToRecyclerView(recyclerView);
     }
 

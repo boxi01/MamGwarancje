@@ -133,9 +133,7 @@ public class AddingReceipt extends AppCompatActivity implements View.OnClickList
         }).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>(){
             @Override
             public void onSuccess(UploadTask.TaskSnapshot taskSnapshot){
-                Toast.makeText(AddingReceipt.this,
-                        "Image has been uploaded to cloud storage",
-                        Toast.LENGTH_SHORT).show();
+
                 uploadeRef.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
                                                                      @Override
                                                                      public void onSuccess(Uri uri) {
@@ -270,8 +268,6 @@ public class AddingReceipt extends AppCompatActivity implements View.OnClickList
             if (requestCode == CropImage.CROP_IMAGE_ACTIVITY_REQUEST_CODE) {
                 CropImage.ActivityResult result = CropImage.getActivityResult(data);
                 resultUri = result.getUri();
-                Log.d("uri", "jestem tu");
-                Log.d("uri", resultUri.toString());
 
                 if (resultUri != null) {
                     imgReceipt.setImageURI(resultUri);
@@ -287,9 +283,7 @@ public class AddingReceipt extends AppCompatActivity implements View.OnClickList
     public void detectText(){
 
         if(bitmap == null){
-            Log.d("array", "no image");
         } else {
-            Log.d("array", "have image");
             FirebaseVisionImage myimage = FirebaseVisionImage.fromBitmap(bitmap);
             FirebaseVisionTextRecognizer detector = FirebaseVision.getInstance().getOnDeviceTextRecognizer();
             //Task<FirebaseVisionText> result =
@@ -323,8 +317,6 @@ public class AddingReceipt extends AppCompatActivity implements View.OnClickList
         List<SimpleDateFormat> knownPatterns = new ArrayList<SimpleDateFormat>();
         knownPatterns.add(new SimpleDateFormat("yyyy-MM-dd"));
         knownPatterns.add(new SimpleDateFormat("dd-MM-yyyy"));
-       // knownPatterns.add(new SimpleDateFormat("dd/MM/yyyy"));
-        //knownPatterns.add(new SimpleDateFormat("yyyy/MM/dd"));
 
         for(FirebaseVisionText.TextBlock block:firebaseVisionText.getTextBlocks()){
             String text = block.getText();
@@ -342,6 +334,7 @@ public class AddingReceipt extends AppCompatActivity implements View.OnClickList
                             date = (Date)df.parse(elementText);
                         } catch (ParseException e) {
                             e.printStackTrace();
+
                         }
                         SimpleDateFormat newFormat = new SimpleDateFormat("yyyy-MM-dd");
                         elementText = newFormat.format(date);
@@ -373,6 +366,11 @@ public class AddingReceipt extends AppCompatActivity implements View.OnClickList
                 }
             }
 
+        }
+        if(viewTextDate.getText().length()==0){
+            Toast.makeText(AddingReceipt.this,
+                    "Nie można wyodrębnić danych. Zrób zdjęcie jescze raz.",
+                    Toast.LENGTH_SHORT).show();
         }
     }
 

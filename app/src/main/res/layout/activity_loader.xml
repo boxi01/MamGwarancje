@@ -23,7 +23,7 @@
         android:layout_marginTop="30dp"
         android:layout_marginBottom="20dp"
         android:layout_below="@+id/imageView2"
-        android:text="Przechowuj wszystkie paragony w jednym miejscu i pamiętaj kidy kończy się gwarancja!"
+        android:text="Przechowuj wszystkie paragony w jednym miejscu i pamiętaj kiedy kończy się gwarancja!"
         android:textColor="@android:color/black"
         android:textSize="16sp" />
 </RelativeLayout>

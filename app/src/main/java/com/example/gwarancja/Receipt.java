@@ -14,7 +14,6 @@ public class Receipt {
 
     public Receipt(String product,String imgUrl, String date, int years, String endDate) {
         this.product = product;
-        this.imgUrl = imgUrl;
         this.date = date;
         this.years = years;
         this.endDate = endDate;
@@ -22,10 +21,6 @@ public class Receipt {
 
     public String getProduct() {
         return product;
-    }
-
-    public String getDescription() {
-        return imgUrl;
     }
 
     public int getYears() {
@@ -48,12 +43,5 @@ public class Receipt {
         this.imgUrl = imageUrl;
     }
 
-    public String getPushId() {
-        return pushId;
-    }
-
-    public void setPushId(String pushId) {
-        this.pushId = pushId;
-    }
 }
 

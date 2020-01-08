@@ -13,11 +13,12 @@
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
-        android:label="@string/app_name"
+        android:label="MamGwarancję"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ReceiptDetails" />
+        <activity android:name=".ReceiptDetails"
+            android:theme="@style/AppTheme.NoActionBar"/>
         <activity android:name=".AddingReceipt"
             android:parentActivityName=".MainActivity"/>
         <activity android:name=".MainActivity"

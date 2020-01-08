@@ -8,7 +8,9 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp">
 
 
         <TextView
@@ -35,7 +37,7 @@
             android:layout_height="wrap_content"
             android:layout_toRightOf="@id/viewDetail2"
             android:layout_below="@id/viewDetailName"
-            android:paddingLeft="20dp"
+            android:paddingLeft="10dp"
             android:layout_marginTop="20dp"
             android:text="Date of purchase"
             android:textColor="@android:color/black"
@@ -55,35 +57,17 @@
             android:layout_height="wrap_content"
             android:layout_toRightOf="@id/viewDetail3"
             android:layout_below="@id/viewDetailDate"
-            android:paddingLeft="20dp"
+            android:paddingLeft="10dp"
             android:text="Time"
             android:textColor="@android:color/black"
             android:textStyle="bold" />
 
-        <TextView
-            android:id="@+id/viewDetail4"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/viewDetail3"
-            android:text="Koniec gwarancji za:"
-            android:textColor="@android:color/black" />
-
-        <TextView
-            android:id="@+id/viewDetailLeft"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_toRightOf="@id/viewDetail4"
-            android:layout_below="@id/viewDetailYears"
-            android:paddingLeft="20dp"
-            android:text="Days left"
-            android:textColor="@android:color/black"
-            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/viewText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/viewDetailLeft"
+            android:layout_below="@id/viewDetailYears"
             android:layout_marginTop="40dp"
             android:text="Twój paragon:"
             android:textColor="@android:color/black"
