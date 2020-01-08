@@ -14,6 +14,7 @@ public class Receipt {
 
     public Receipt(String product,String imgUrl, String date, int years, String endDate) {
         this.product = product;
+        this.imgUrl = imgUrl;
         this.date = date;
         this.years = years;
         this.endDate = endDate;
